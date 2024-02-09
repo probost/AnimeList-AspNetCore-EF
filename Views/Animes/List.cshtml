@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model AnimeList_AspNetCore_EF.Models.Animes.AnimesListViewModel
+@{
+    ViewData["Title"] = "Animes List";
+}
+
+<h1>Anime list</h1>
+<div class="mt-2 mb-2">
+    @*<a role="button" asp-controller="Users" asp-action="Add" class="btn btn-primary">Add new user</a>*@
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Episodes</th>
+                <th>Watched episodes</th>
+                <th>Start date</th>
+                <th>Finish date</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var anime in Model.Animes)
+            {
+                <tr>
+                    <th>@anime.Id</th>
+                    <th>@anime.Title</th>
+                    <th>@anime.Type</th>
+                    <th>@anime.Episodes</th>
+                    <th>@anime.WatchedEpisodes</th>
+                    <th>@anime.StartDate</th>
+                    <th>@anime.FinishDate</th>
+                    <th>@anime.Score</th>
+                    <th>@anime.WatchingStatus</th>
+                    
+                    @*<td>
+                        <div class="d-flex gap-2">
+                            <a role="button" class="btn btn-primary" asp-controller="Users" asp-action="Detail" asp-route-id="@user.Id">Detail</a>
+                            <a role="button" class="btn btn-primary" asp-controller="Users" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+                        </div>
+                    </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
