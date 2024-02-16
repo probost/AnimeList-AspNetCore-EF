@@ -1,0 +1,72 @@
+﻿@using static AnimeList_AspNetCore_EF.Core.Entities.Anime
+@model AnimeList_AspNetCore_EF.Models.Animes.AnimesAddViewModel
+@{
+    ViewData["Title"] = "Add Anime";
+}
+<h1>Add Anime</h1>
+<form method="post">
+    @* <div>
+        <label>Title</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="mt-2">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div> *@
+    <h2>Add New Anime</h2>
+
+    <form asp-action="Add" asp-controller="AnimeController" method="post">
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Type"></label>
+            <select asp-for="Type" asp-items="Html.GetEnumSelectList<AnimationType>()" class="form-control">
+                <option value="">-- Select Animation Type --</option>
+            </select>
+            <span asp-validation-for="Type" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Episodes"></label>
+            <input asp-for="Episodes" class="form-control" />
+            <span asp-validation-for="Episodes" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="WatchedEpisodes"></label>
+            <input asp-for="WatchedEpisodes" class="form-control" />
+            <span asp-validation-for="WatchedEpisodes" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="StartDate"></label>
+            <input asp-for="StartDate" class="form-control datepicker" />
+            <span asp-validation-for="StartDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FinishDate"></label>
+            <input asp-for="FinishDate" class="form-control datepicker" />
+            <span asp-validation-for="FinishDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Score"></label>
+            <input asp-for="Score" class="form-control" />
+            <span asp-validation-for="Score" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="WatchingStatus"></label>
+            <select asp-for="WatchingStatus" asp-items="Html.GetEnumSelectList<Status>()" class="form-control">
+                <option value="">-- Select Status --</option>          
+            </select>
+            <span asp-validation-for="WatchingStatus" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Anime</button>
+    </form>
+</form>

@@ -12,21 +12,19 @@ namespace AnimeList_AspNetCore_EF.Core.Entities
         [Column("title")]
         public string Title { get; set; }
         [Column("type")]
-        public string Type { get; set; }
+        public AnimationType Type { get; set; }
         [Column("episodes")]
         public int Episodes{ get; set; }
         [Column("watched_episodes")]
         public int WatchedEpisodes{ get; set; }
         [Column("start_date")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         [Column("finish_date")]
-        public DateTime FinishDate{ get; set; }
+        public DateTime? FinishDate{ get; set; }
         [Column("score")]
-        public int Score { get; set; }
+        public int? Score { get; set; }
         [Column("status")]
         public Status WatchingStatus { get; set; }
-
-
 
 
 

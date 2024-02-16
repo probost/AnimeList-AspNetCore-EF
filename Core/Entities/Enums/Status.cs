@@ -4,18 +4,11 @@
     {
         public enum Status
         {
-            Watching  = 0,
-            Completed = 1,
-            OnHold = 2,
-            Dropped = 3,
-            PlanToWatch= 4,
-
-        }
-
-
-
-
-
-
+            Watching  = 1,
+            Completed = 2,
+            OnHold = 3,
+            Dropped = 4,
+            PlanToWatch= 5
+        } 
     }
 }

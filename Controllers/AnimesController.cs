@@ -20,28 +20,24 @@ namespace AnimeList_AspNetCore_EF.Controllers
             var model = new AnimesListViewModel(animes);
             return View(model);
         }
-        // GET: AnimesController
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         // GET: AnimesController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Detail(int id)
         {
             return View();
         }
 
         // GET: AnimesController/Create
-        public ActionResult Create()
+        public ActionResult Add()
         {
-            return View();
+            var model = new AnimesAddViewModel();
+            return View(model);
         }
 
         // POST: AnimesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Add(AnimesAddViewModel model)
         {
             try
             {
