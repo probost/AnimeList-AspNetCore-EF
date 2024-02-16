@@ -14,9 +14,9 @@ namespace AnimeList_AspNetCore_EF.Core.Entities
         [Column("type")]
         public string Type { get; set; }
         [Column("episodes")]
-        public string Episodes{ get; set; }
+        public int Episodes{ get; set; }
         [Column("watched_episodes")]
-        public string WatchedEpisodes{ get; set; }
+        public int WatchedEpisodes{ get; set; }
         [Column("start_date")]
         public DateTime StartDate { get; set; }
         [Column("finish_date")]

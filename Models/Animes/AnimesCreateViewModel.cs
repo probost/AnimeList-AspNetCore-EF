@@ -7,8 +7,8 @@ namespace AnimeList_AspNetCore_EF.Models.Animes
     {
         public string Title { get; set; }
         public string Type { get; set; }
-        public string Episodes { get; set; }
-        public string WatchedEpisodes { get; set; }
+        public int Episodes { get; set; }
+        public int WatchedEpisodes { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime FinishDate { get; set; }
         public int Score { get; set; }
