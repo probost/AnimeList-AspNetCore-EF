@@ -1,4 +1,5 @@
-﻿using AnimeList_AspNetCore_EF.Models.Animes;
+﻿using AnimeList_AspNetCore_EF.Core.Entities;
+using AnimeList_AspNetCore_EF.Models.Animes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplicationMvcEfCore.Core.Persistence;
@@ -34,19 +35,30 @@ namespace AnimeList_AspNetCore_EF.Controllers
             return View(model);
         }
 
-        // POST: AnimesController/Create
+        // post: animescontroller/create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Add(AnimesAddViewModel model)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                return View(model);
             }
-            catch
-            {
-                return View();
-            }
+
+            var anime = new Anime();
+            anime.Title = model.Title;
+            anime.Type = model.Type;
+            anime.Episodes = model.Episodes;
+            anime.WatchedEpisodes = model.WatchedEpisodes;
+            anime.StartDate = model.StartDate;
+            anime.FinishDate = model.FinishDate;
+            anime.Score = model.Score;
+            anime.WatchingStatus    = model.WatchingStatus;
+
+            _dbContext.Animes.Add(anime);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction(nameof(List));
         }
 
         // GET: AnimesController/Edit/5

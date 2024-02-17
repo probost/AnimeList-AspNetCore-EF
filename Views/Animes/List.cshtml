@@ -8,7 +8,7 @@
 
 <h1>Anime list</h1>
 <div class="mt-2 mb-2">
-    @*<a role="button" asp-controller="Users" asp-action="Add" class="btn btn-primary">Add new user</a>*@
+    <a role="button" asp-controller="Animes" asp-action="Add" class="btn btn-primary">Add anime</a>
 </div>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -23,7 +23,6 @@
                 <th>Finish date</th>
                 <th>Score</th>
                 <th>Status</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -42,8 +41,8 @@
                     
                     @*<td>
                         <div class="d-flex gap-2">
-                            <a role="button" class="btn btn-primary" asp-controller="Users" asp-action="Detail" asp-route-id="@user.Id">Detail</a>
-                            <a role="button" class="btn btn-primary" asp-controller="Users" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+                            <a role="button" class="btn btn-primary" asp-controller="Animes" asp-action="Detail" asp-route-id="@user.Id">Detail</a>
+                            <a role="button" class="btn btn-primary" asp-controller="Animes" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
                         </div>
                     </td>*@
                 </tr>

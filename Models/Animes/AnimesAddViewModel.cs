@@ -10,7 +10,7 @@ namespace AnimeList_AspNetCore_EF.Models.Animes
         public string Title { get; set; }
 
         [Required(ErrorMessage = "The Type field is required.")]
-        public string Type { get; set; }
+        public AnimationType Type { get; set; }
 
         [Required(ErrorMessage = "The Episodes field is required.")]
         [Range(1, int.MaxValue, ErrorMessage = "Episodes must be greater than 0.")]
