@@ -1,0 +1,29 @@
+﻿ @model AnimeList_AspNetCore_EF.Models.Animes.AnimesDetailViewModel
+
+@{
+    ViewData["Title"] = Model.Anime.Title;
+}
+<h1>Anime list</h1>
+<h2>Anime @Model.Anime.Title</h2>
+
+<div class="card mb-2">   
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Id: @Model.Anime.Id</li>
+        <li class="list-group-item">Title: @Model.Anime.Title</li>
+        <li class="list-group-item">Type: @Model.Anime.Type</li>
+        <li class="list-group-item">Episodes: @Model.Anime.Episodes</li>
+        <li class="list-group-item">Watched Episodes: @Model.Anime.WatchedEpisodes</li>
+        <li class="list-group-item">Watched Percentage: @(((double)Model.Anime.WatchedEpisodes / Model.Anime.Episodes) * 100)%</li>
+        <li class="list-group-item">Start Date: @Model.Anime.StartDate</li>
+        <li class="list-group-item">Finish Date: @Model.Anime.FinishDate</li>
+        <li class="list-group-item">Score: @Model.Anime.Score</li>
+        <li class="list-group-item">Watching Status: @Model.Anime.WatchingStatus</li>
+
+    </ul>
+</div>
+
+<div class="d-flex gap-2">
+    <a role="button" class="btn btn-dark" asp-controller="Animes" asp-action="Edit" asp-route-id="@Model.Anime.Id">Edit</a>
+    <a role="button" class="btn btn-dark" asp-controller="Animes" asp-action="List">Back To List</a>
+    <a role="button" class="btn btn-danger" asp-controller="Animes" asp-action="Delete" asp-route-id="@Model.Anime.Id">Delete</a>
+</div>

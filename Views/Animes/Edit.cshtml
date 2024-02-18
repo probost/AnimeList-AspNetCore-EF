@@ -1,21 +1,21 @@
 ﻿@using static AnimeList_AspNetCore_EF.Core.Entities.Anime
-@model AnimeList_AspNetCore_EF.Models.Animes.AnimesAddViewModel
+@model AnimeList_AspNetCore_EF.Models.Animes.AnimesEditViewModel
 @{
-    ViewData["Title"] = "Add Anime";
+    ViewData["Title"] = "Edit Anime";
 }
 <h1>Anime list</h1>
-<h2>Add anime</h2>
+<h2>Edit Anime @Model.Title</h2>
 <form method="post">
-    <form asp-controller="AnimeController" method="post">
+    <form asp-controller="AnimeController" method="post" asp-route-id="@Model.Id">
         <div class="form-group">
             <label asp-for="Title"></label>
-            <input asp-for="Title" class="form-control" />
+            <input asp-for="Title" class="form-control" disabled>
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Type"></label>
-            <select asp-for="Type" asp-items="Html.GetEnumSelectList<AnimationType>()" class="form-control">
+            <select asp-for="Type" asp-items="Html.GetEnumSelectList<AnimationType>()" class="form-control" disabled>
                 <option value="">-- Select Animation Type --</option>
             </select>
             <span asp-validation-for="Type" class="text-danger"></span>
@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label asp-for="Episodes"></label>
-            <input asp-for="Episodes" class="form-control" />
+            <input asp-for="Episodes" class="form-control" disabled>
             <span asp-validation-for="Episodes" class="text-danger"></span>
         </div>
 
@@ -54,11 +54,11 @@
         <div class="form-group">
             <label asp-for="WatchingStatus"></label>
             <select asp-for="WatchingStatus" asp-items="Html.GetEnumSelectList<Status>()" class="form-control">
-                <option value="">-- Select Status --</option>          
+                <option value="">-- Select Status --</option>
             </select>
             <span asp-validation-for="WatchingStatus" class="text-danger"></span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
     </form>
 </form>

@@ -25,17 +25,23 @@ namespace AnimeList_AspNetCore_EF.Controllers
         // GET: AnimesController/Details/5
         public ActionResult Detail(int id)
         {
-            return View();
+            var anime = _dbContext.Animes.FirstOrDefault(a=>a.Id == id);
+            if (anime == null)
+            {
+                return RedirectToAction(nameof(List));
+            }
+            var model = new AnimesDetailViewModel(anime);
+            return View(model);
         }
 
-        // GET: AnimesController/Create
+        // GET: AnimesController/Add
         public ActionResult Add()
         {
             var model = new AnimesAddViewModel();
             return View(model);
         }
 
-        // post: animescontroller/create
+        // post: AnimesController/Add
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Add(AnimesAddViewModel model)
@@ -53,7 +59,7 @@ namespace AnimeList_AspNetCore_EF.Controllers
             anime.StartDate = model.StartDate;
             anime.FinishDate = model.FinishDate;
             anime.Score = model.Score;
-            anime.WatchingStatus    = model.WatchingStatus;
+            anime.WatchingStatus = model.WatchingStatus;
 
             _dbContext.Animes.Add(anime);
             _dbContext.SaveChanges();
@@ -64,43 +70,52 @@ namespace AnimeList_AspNetCore_EF.Controllers
         // GET: AnimesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var anime = _dbContext.Animes.FirstOrDefault(a => a.Id == id);
+            if (anime == null) {
+                return RedirectToAction(nameof(List));
+            }
+            var model = new AnimesEditViewModel(anime);
+            return View(model);
         }
 
         // POST: AnimesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, AnimesEditViewModel model)
         {
-            try
+            var anime = _dbContext.Animes.FirstOrDefault(a => a.Id == id);
+            if (anime == null)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(List));
             }
-            catch
+            if (!ModelState.IsValid)
             {
-                return View();
+                return View(model);
             }
-        }
+            anime.WatchedEpisodes = model.WatchedEpisodes;
+            anime.StartDate = model.StartDate;
+            anime.FinishDate = model.FinishDate;
+            anime.Score = model.Score;
+            anime.WatchingStatus = model.WatchingStatus;
 
-        // GET: AnimesController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            _dbContext.SaveChanges();
+            return RedirectToAction(nameof(Detail),new {id = anime.Id});
         }
 
         // POST: AnimesController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [HttpGet]
+        public ActionResult Delete(int id)
         {
-            try
+            var anime = _dbContext.Animes.FirstOrDefault(a => a.Id == id);
+            if (anime == null)
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(List));
             }
-            catch
-            {
-                return View();
-            }
+
+            _dbContext.Animes.Remove(anime);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction(nameof(List));
         }
     }
 }
