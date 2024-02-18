@@ -13,7 +13,7 @@
         <li class="list-group-item">Type: @Model.Anime.Type</li>
         <li class="list-group-item">Episodes: @Model.Anime.Episodes</li>
         <li class="list-group-item">Watched Episodes: @Model.Anime.WatchedEpisodes</li>
-        <li class="list-group-item">Watched Percentage: @(((double)Model.Anime.WatchedEpisodes / Model.Anime.Episodes) * 100)%</li>
+        <li class="list-group-item">Watched Percentage: @(Math.Round(((double)Model.Anime.WatchedEpisodes / Model.Anime.Episodes) * 100, 2))%</li>
         <li class="list-group-item">Start Date: @Model.Anime.StartDate</li>
         <li class="list-group-item">Finish Date: @Model.Anime.FinishDate</li>
         <li class="list-group-item">Score: @Model.Anime.Score</li>

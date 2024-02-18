@@ -9,13 +9,13 @@
     <form asp-controller="AnimeController" method="post" asp-route-id="@Model.Id">
         <div class="form-group">
             <label asp-for="Title"></label>
-            <input asp-for="Title" class="form-control" disabled>
+            <input asp-for="Title" class="form-control" >
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Type"></label>
-            <select asp-for="Type" asp-items="Html.GetEnumSelectList<AnimationType>()" class="form-control" disabled>
+            <select asp-for="Type" asp-items="Html.GetEnumSelectList<AnimationType>()" class="form-control" >
                 <option value="">-- Select Animation Type --</option>
             </select>
             <span asp-validation-for="Type" class="text-danger"></span>
@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label asp-for="Episodes"></label>
-            <input asp-for="Episodes" class="form-control" disabled>
+            <input asp-for="Episodes" class="form-control" >
             <span asp-validation-for="Episodes" class="text-danger"></span>
         </div>
 
