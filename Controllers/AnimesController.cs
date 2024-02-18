@@ -92,6 +92,9 @@ namespace AnimeList_AspNetCore_EF.Controllers
             {
                 return View(model);
             }
+            anime.Title = model.Title;
+            anime.Type = model.Type;
+            anime.Episodes = model.Episodes;
             anime.WatchedEpisodes = model.WatchedEpisodes;
             anime.StartDate = model.StartDate;
             anime.FinishDate = model.FinishDate;
