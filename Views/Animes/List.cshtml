@@ -12,7 +12,7 @@
 </div>
 <div class="table-responsive">
     <table class="table table-striped">
-        <thead>
+        <thead >
             <tr>
                 <th>Title</th>
                 <th>Type</th>
@@ -22,20 +22,21 @@
                 <th>Finish date</th>
                 <th>Score</th>
                 <th>Status</th>
+                <th class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var anime in Model.Animes)
             {
                 <tr>
-                    <th>@anime.Title</th>
-                    <th>@anime.Type</th>
-                    <th>@anime.Episodes</th>
-                    <th>@anime.WatchedEpisodes</th>
-                    <th>@anime.StartDate</th>
-                    <th>@anime.FinishDate</th>
-                    <th>@anime.Score</th>
-                    <th>@anime.WatchingStatus</th>
+                    <td>@anime.Title</td>
+                    <td>@anime.Type</td>
+                    <td>@anime.Episodes</td>
+                    <td>@anime.WatchedEpisodes</td>
+                    <td>@anime.StartDate</td>
+                    <td>@anime.FinishDate</td>
+                    <td>@anime.Score</td>
+                    <td>@anime.WatchingStatus</td>
                     
                     <td>
                         <div class="d-flex gap-2">

@@ -15,7 +15,7 @@ namespace AnimeList_AspNetCore_EF.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("List", "Animes");
         }
 
         public IActionResult Privacy()
