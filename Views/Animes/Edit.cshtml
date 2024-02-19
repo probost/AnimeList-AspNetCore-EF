@@ -3,57 +3,57 @@
 @{
     ViewData["Title"] = "Edit Anime";
 }
-<h1>Anime list</h1>
-<h2>Edit Anime @Model.Title</h2>
+<h1 class="text-white">Anime list</h1>
+<h2 class="text-white">Edit Anime @Model.Title</h2>
 <form method="post">
     <form asp-controller="AnimeController" method="post" asp-route-id="@Model.Id">
         <div class="form-group">
             <label asp-for="Title"></label>
-            <input asp-for="Title" class="form-control" >
+            <input asp-for="Title" class="form-control bg-dark text-white">
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Type"></label>
-            <select asp-for="Type" asp-items="Html.GetEnumSelectList<AnimationType>()" class="form-control" >
+            <label asp-for="Type" class="text-white"></label>
+            <select asp-for="Type" asp-items="Html.GetEnumSelectList<AnimationType>()" class="form-control bg-dark text-white">
                 <option value="">-- Select Animation Type --</option>
             </select>
             <span asp-validation-for="Type" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Episodes"></label>
-            <input asp-for="Episodes" class="form-control" >
+            <label asp-for="Episodes" class="text-white"></label>
+            <input asp-for="Episodes" class="form-control bg-dark text-white">
             <span asp-validation-for="Episodes" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="WatchedEpisodes"></label>
-            <input asp-for="WatchedEpisodes" class="form-control" />
+            <label asp-for="WatchedEpisodes" class="text-white"></label>
+            <input asp-for="WatchedEpisodes" class="form-control bg-dark text-white" />
             <span asp-validation-for="WatchedEpisodes" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="StartDate"></label>
-            <input asp-for="StartDate" class="form-control datepicker" />
+            <label asp-for="StartDate" class="text-white"></label>
+            <input asp-for="StartDate" class="form-control datepicker bg-dark text-white" />
             <span asp-validation-for="StartDate" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="FinishDate"></label>
-            <input asp-for="FinishDate" class="form-control datepicker" />
+            <label asp-for="FinishDate" class="text-white"></label>
+            <input asp-for="FinishDate" class="form-control datepicker bg-dark text-white" />
             <span asp-validation-for="FinishDate" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Score"></label>
-            <input asp-for="Score" class="form-control" />
+            <label asp-for="Score" class="text-white"></label>
+            <input asp-for="Score" class="form-control bg-dark text-white" />
             <span asp-validation-for="Score" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="WatchingStatus"></label>
-            <select asp-for="WatchingStatus" asp-items="Html.GetEnumSelectList<Status>()" class="form-control">
+            <label asp-for="WatchingStatus" class="text-white"></label>
+            <select asp-for="WatchingStatus" asp-items="Html.GetEnumSelectList<Status>()" class="form-control bg-dark text-white">
                 <option value="">-- Select Status --</option>
             </select>
             <span asp-validation-for="WatchingStatus" class="text-danger"></span>
