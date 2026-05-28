@@ -5,5 +5,5 @@ Prerequisities:
 - C# Dev Kit extension pack from the VS Code Marketplace
 - MySQL DB
 
-Run with:
+Clone the repo then Run with:
 ```dotnet run```
