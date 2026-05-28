@@ -1,5 +1,5 @@
 # AnimeList-AspNetCore-EF
--Boilerplate project used to learn MVC, not for actual use
+- Boilerplate project used to learn MVC, lackluster in use and impractical
 
 Prerequisities:
 - .NET SDK (Version 8.0, 9.0, or newer)
